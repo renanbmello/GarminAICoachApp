@@ -2,16 +2,21 @@ import React from 'react';
 import { FlatList, StyleSheet } from 'react-native';
 import { Activity } from '../types/activity';
 import { ActivityCard } from './ActivityCard';
+import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { RootStackParamList } from '../types/navigation';
+import { useActivities } from '../hooks/useActivities';
 
-interface ActivityListProps {
-  activities: Activity[];
-  onActivityPress: (activity: Activity) => void;
-}
+type ActivityListNavigationProp = NativeStackNavigationProp<RootStackParamList, 'ActivityList'>;
 
-export const ActivityList: React.FC<ActivityListProps> = ({ 
-  activities, 
-  onActivityPress 
-}) => {
+export const ActivityList: React.FC = () => {
+  const navigation = useNavigation<ActivityListNavigationProp>();
+  const { activities } = useActivities();
+
+  const handleActivityPress = (activity: Activity) => {
+    navigation.navigate('ActivityDetail', { id: activity.id });
+  };
+
   return (
     <FlatList
       data={activities}
@@ -19,7 +24,7 @@ export const ActivityList: React.FC<ActivityListProps> = ({
       renderItem={({ item }) => (
         <ActivityCard 
           activity={item} 
-          onPress={() => onActivityPress(item)} 
+          onPress={() => handleActivityPress(item)} 
         />
       )}
       contentContainerStyle={styles.listContent}
