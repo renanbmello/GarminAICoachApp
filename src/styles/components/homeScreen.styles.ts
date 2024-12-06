@@ -1,10 +1,10 @@
 import { StyleSheet } from 'react-native';
 import { colors } from '../../theme/colors';
 
-export const homeScreenStyles = StyleSheet.create({
+export const homeScreenStyles = (theme: 'light' | 'dark') => StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.white,
+    backgroundColor: colors[theme].background,
     padding: 20,
     justifyContent: 'space-between',
   },
@@ -16,26 +16,34 @@ export const homeScreenStyles = StyleSheet.create({
   welcomeTitle: {
     fontSize: 32,
     fontWeight: 'bold',
-    color: colors.text.primary,
+    color: colors[theme].text.primary,
     textAlign: 'center',
     marginBottom: 16,
   },
   welcomeText: {
     fontSize: 18,
-    color: colors.text.secondary,
+    color: colors[theme].text.secondary,
     textAlign: 'center',
     paddingHorizontal: 20,
   },
   button: {
-    backgroundColor: colors.primary || '#007AFF',
+    backgroundColor: colors[theme].primary,
     paddingVertical: 16,
     borderRadius: 12,
     alignItems: 'center',
     marginBottom: 20,
   },
   buttonText: {
-    color: 'white',
+    color: '#FFFFFF',
     fontSize: 18,
     fontWeight: '600',
+  },
+  themeToggle: {
+    position: 'absolute',
+    top: 40,
+    right: 20,
+    padding: 8,
+    borderRadius: 20,
+    zIndex: 1,
   },
 }); 

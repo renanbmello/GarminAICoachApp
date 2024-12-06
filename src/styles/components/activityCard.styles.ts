@@ -1,9 +1,9 @@
 import { StyleSheet } from 'react-native';
 import { colors } from '../../theme/colors';
 
-export const activityCardStyles = StyleSheet.create({
+export const activityCardStyles = (theme: 'light' | 'dark') => StyleSheet.create({
     container: {
-      backgroundColor: colors.white,
+      backgroundColor: colors[theme].background,
       borderRadius: 12,
       padding: 16,
       marginHorizontal: 16,
@@ -23,13 +23,13 @@ export const activityCardStyles = StyleSheet.create({
     title: {
       fontSize: 16,
       fontWeight: '600',
-      color: colors.text.primary,
+      color: colors[theme].text.primary,
       flex: 1,  
       marginRight: 8,  
     },
     date: {
       fontSize: 14,
-      color: colors.text.secondary,
+      color: colors[theme].text.secondary,
       flexShrink: 0,  
     },
     stats: {
@@ -42,13 +42,13 @@ export const activityCardStyles = StyleSheet.create({
     },
     statLabel: {
       fontSize: 12,
-      color: colors.text.secondary,
+      color: colors[theme].text.secondary,
       marginBottom: 4,
     },
     statValue: {
       fontSize: 16,
       fontWeight: '500',
-      color: colors.text.primary,
+      color: colors[theme].text.primary,
     },
   });
 
