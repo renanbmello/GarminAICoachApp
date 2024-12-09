@@ -21,7 +21,13 @@
     "react-native-safe-area-context": "4.12.0",
     "react-native-screens": "~4.1.0",
     "react-native-svg": "15.8.0",
-    "react-native-vector-icons": "^10.2.0"
+    "react-native-vector-icons": "^10.2.0",
+    "@babel/plugin-transform-nullish-coalescing-operator": "^7.x.x",
+    "@babel/plugin-transform-class-properties": "^7.x.x",
+    "@babel/plugin-transform-optional-chaining": "^7.x.x",
+    "@xmldom/xmldom": "^0.8.0",
+    "rimraf": "^5.0.0",
+    "glob": "^10.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",
