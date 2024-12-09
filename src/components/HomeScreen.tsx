@@ -7,39 +7,32 @@ import { homeScreenStyles as styles } from '../styles/components/homeScreen.styl
 import { useTheme } from '../context/ThemeContext';
 import Icons from 'react-native-vector-icons/Feather';
 import { colors } from '../theme/colors';
+import { NavigationBar } from './NavigationBar';
 
 type HomeScreenNavigationProp = NativeStackNavigationProp<RootStackParamList, 'Home'>;
 
 export const HomeScreen: React.FC = () => {
-  const navigation = useNavigation<HomeScreenNavigationProp>();
   const { theme, toggleTheme } = useTheme();
-  const handleViewActivities = () => {
-    navigation.navigate('ActivityList');
-  };
 
   return (
     <View style={styles(theme).container}>
-		<TouchableOpacity 
-		style={styles(theme).themeToggle}
-		onPress={toggleTheme}
-		>
-			<Icons name={theme === 'light' ? 'moon' : 'sun'}
-			 size={24}
-			 color={theme === 'light' ? '#000' : '#fff'} />
-		</TouchableOpacity>
+      <TouchableOpacity 
+        style={styles(theme).themeToggle}
+        onPress={toggleTheme}
+      >
+        <Icons 
+          name={theme === 'light' ? 'moon' : 'sun'}
+          size={24}
+          color={theme === 'light' ? '#000' : '#fff'} 
+        />
+      </TouchableOpacity>
       <View style={styles(theme).content}>
         <Text style={styles(theme).welcomeTitle}>Welcome to{'\n'}Activity Tracker</Text>
         <Text style={styles(theme).welcomeText}>
           Track your workouts and improve day by day
         </Text>
       </View>
-
-      <TouchableOpacity 
-        style={styles(theme).button}
-        onPress={handleViewActivities}
-      >
-        <Text style={styles(theme).buttonText}>View My Activities</Text>
-      </TouchableOpacity>
+      <NavigationBar />
     </View>
   );
 };

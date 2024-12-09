@@ -6,7 +6,7 @@ export const homeScreenStyles = (theme: 'light' | 'dark') => StyleSheet.create({
     flex: 1,
     backgroundColor: colors[theme].background,
     padding: 20,
-    justifyContent: 'space-between',
+    paddingBottom: 0,
   },
   content: {
     flex: 1,
