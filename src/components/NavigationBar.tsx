@@ -5,36 +5,47 @@ import { navigationBarStyles as styles } from '../styles/components/navigationBa
 import { useTheme } from '../context/ThemeContext';
 import Icons from 'react-native-vector-icons/Feather';
 import { colors } from '../theme/colors';
+import { RootStackParamList } from '../types/navigation';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+
+type NavigationProp = NativeStackNavigationProp<RootStackParamList>;
+
+type TabConfig = {
+  name: string;
+  icon: string;
+  route: keyof RootStackParamList;
+};
 
 export const NavigationBar: React.FC = () => {
-  const navigation = useNavigation();
+  const navigation = useNavigation<NavigationProp>();
   const { theme } = useTheme();
   const [activeTab, setActiveTab] = React.useState('Home');
 
-  const tabs = [
-    { name: 'Home', icon: 'home' },
+  const TABS: TabConfig[] = [
+    { name: 'Home', icon: 'home', route: 'Home' },
     // { name: 'Maps', icon: 'map' },
     // { name: 'Record', icon: 'circle' },
-    // { name: 'Groups', icon: 'users' },
-    { name: 'Runs', icon: 'clipboard' },
+    { name: 'AI Analysis', icon: 'bar-chart-2', route: 'AIAnalysisScreen' },
+    { name: 'Runs', icon: 'clipboard', route: 'ActivityList' },
   ];
 
-  const handlePress = (tabName: string) => {
-    setActiveTab(tabName);
-    if (tabName === 'Home') {
-      navigation.navigate('Home');
-    } else if (tabName === 'Runs') {
-      navigation.navigate('ActivityList');
+  const handlePress = (tab: TabConfig) => {
+    setActiveTab(tab.name);
+    switch (tab.route) {
+      case 'ActivityDetail':
+        break;
+      default:
+        navigation.navigate(tab.route);
     }
   };
 
   return (
     <View style={styles(theme).navigationBar}>
-      {tabs.map((tab) => (
+      {TABS.map((tab) => (
         <TouchableOpacity
           key={tab.name}
           style={styles(theme).navItem}
-          onPress={() => handlePress(tab.name)}
+          onPress={() => handlePress(tab)}
         >
           <Icons
             name={tab.icon}

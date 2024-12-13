@@ -5,6 +5,7 @@ import ActivityDetail from './src/components/ActivityDetail';
 import { RootStackParamList } from './src/types/navigation';
 import { HomeScreen } from './src/components/HomeScreen';
 import { ThemeProvider } from './src/context/ThemeContext';
+import { AIAnalysisScreen } from './src/components/AIAnalysisScreen';
 
 const Stack = createStackNavigator<RootStackParamList>();
 
@@ -19,9 +20,7 @@ export default function App() {
           }}
         >
           <Stack.Screen name="Home" component={HomeScreen} />
-          <Stack.Screen name="Maps" component={HomeScreen} />
-          <Stack.Screen name="Record" component={HomeScreen} />
-          <Stack.Screen name="Groups" component={HomeScreen} />
+          <Stack.Screen name="AIAnalysisScreen" component={AIAnalysisScreen} />
           <Stack.Screen name="Runs" component={ActivityList} />
           <Stack.Screen name="ActivityList" component={ActivityList} />
           <Stack.Screen name="ActivityDetail" component={ActivityDetail} />

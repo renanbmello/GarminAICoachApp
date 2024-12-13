@@ -6,6 +6,7 @@ export type RootStackParamList = {
   Record: undefined;
   Groups: undefined;
   Runs: undefined;
+  AIAnalysisScreen: undefined;
 };
 
 declare global {
