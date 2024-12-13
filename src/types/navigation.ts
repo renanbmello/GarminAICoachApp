@@ -1,4 +1,5 @@
 export type RootStackParamList = {
+  Login: undefined; 
   Home: undefined;
   ActivityList: undefined;
   ActivityDetail: { id: number };
