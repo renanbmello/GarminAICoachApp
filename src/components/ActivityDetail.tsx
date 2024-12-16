@@ -100,7 +100,7 @@ const ActivityDetail: React.FC<ActivityDetailProps> = ({ route }) => {
             <View style={styles.stat}>
               <Text style={styles.statLabel}>Stride Length</Text>
               <Text style={styles.statValue}>
-                {(activityDetails.stride_length).toFixed(2)} m
+                {(activityDetails.stride_length).toFixed(2)} cm
               </Text>
             </View>
           </View>
