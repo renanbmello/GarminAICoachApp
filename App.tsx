@@ -6,7 +6,7 @@ import { RootStackParamList } from './src/types/navigation';
 import { HomeScreen } from './src/components/HomeScreen';
 import { ThemeProvider } from './src/context/ThemeContext';
 import { AIAnalysisScreen } from './src/components/AIAnalysisScreen';
-import { LoginScreen } from './src/components/loginScreen';
+import { LoginScreen } from './src/components/LoginScreen';
 
 const Stack = createStackNavigator<RootStackParamList>();
 
@@ -15,7 +15,7 @@ export default function App() {
     <ThemeProvider>
       <NavigationContainer>
         <Stack.Navigator 
-          initialRouteName="Home"
+          initialRouteName="Login"
           screenOptions={{
             headerShown: false
           }}
