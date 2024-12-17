@@ -3,11 +3,9 @@ import { colors } from '../../theme/colors';
 
 export const activityCardStyles = (theme: 'light' | 'dark') => StyleSheet.create({
     container: {
-      backgroundColor: colors[theme].background,
+      backgroundColor: colors[theme].card,
       borderRadius: 12,
       padding: 16,
-      marginHorizontal: 16,
-      marginVertical: 8,
       shadowColor: '#000',
       shadowOffset: { width: 0, height: 2 },
       shadowOpacity: 0.1,
@@ -49,6 +47,11 @@ export const activityCardStyles = (theme: 'light' | 'dark') => StyleSheet.create
       fontSize: 16,
       fontWeight: '500',
       color: colors[theme].text.primary,
+    },
+    noActivityText: {
+      textAlign: 'center',
+      fontSize: 16,
+      color: colors[theme].text.secondary,
     },
   });
 

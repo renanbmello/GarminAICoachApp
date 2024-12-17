@@ -16,6 +16,15 @@ export const ActivityService = {
       console.error('Error fetching activities:', error);
       throw error;
     }
+  },
+  async getLastActivity(): Promise<Activity> {
+    try {
+      const response = await api.get<Activity>('/latest-activity');
+      return response.data;
+    } catch (error) {
+      console.error('Error fetching last activity:', error);
+      throw error;
+    }
   }
 };
 

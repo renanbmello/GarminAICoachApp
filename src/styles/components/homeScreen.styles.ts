@@ -5,45 +5,48 @@ export const homeScreenStyles = (theme: 'light' | 'dark') => StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors[theme].background,
-    padding: 20,
-    paddingBottom: 0,
+  },
+  scrollView: {
+    flex: 1,
   },
   content: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    paddingTop: 100,
+    paddingHorizontal: 20,
   },
   welcomeTitle: {
     fontSize: 32,
     fontWeight: 'bold',
     color: colors[theme].text.primary,
-    textAlign: 'center',
-    marginBottom: 16,
+    marginBottom: 8,
   },
   welcomeText: {
-    fontSize: 18,
+    fontSize: 16,
     color: colors[theme].text.secondary,
-    textAlign: 'center',
-    paddingHorizontal: 20,
+    marginBottom: 40,
   },
-  button: {
-    backgroundColor: colors[theme].primary,
-    paddingVertical: 16,
-    borderRadius: 12,
-    alignItems: 'center',
-    marginBottom: 20,
+  cardContainer: {
+    width: '100%',
   },
-  buttonText: {
-    color: '#FFFFFF',
-    fontSize: 18,
-    fontWeight: '600',
+  sectionTitle: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    color: colors[theme].text.primary,
+    marginBottom: 16,
   },
   themeToggle: {
     position: 'absolute',
-    top: 40,
+    top: 60,
     right: 20,
-    padding: 8,
-    borderRadius: 20,
     zIndex: 1,
+  },
+  loadingContainer: {
+    padding: 20,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  noActivityText: {
+    textAlign: 'center',
+    color: colors[theme].text.secondary,
+    padding: 20,
   },
 }); 
